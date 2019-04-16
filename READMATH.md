@@ -21,7 +21,9 @@ We implement the InfoVAE [2], built on a modified ELBO,
 $$
 \mathcal{L}(\theta,\phi) = \mathbb{E}_{z\sim q_\phi(z|x)}[p_\theta(x|z)] - (1-\alpha) D_{KL}(q_\phi(z|x) || p_\theta(z)) -(\alpha+\lambda-1)D(q_\phi(z) || p_\theta(z)),
 $$
-where the last term is any choice of divergence. In our case we implement two choices: maximum mean discrepancy (MMD) and energy distance [3].
+where the last term is any choice of divergence. 
+
+In our case we implement two choices: maximum mean discrepancy (MMD) and energy distance [3].
 $$
 D_{\mathrm{MMD}} = \mathbb{E}_{z\sim p,z' \sim p}[k(z,z')] + \mathbb{E}_{z\sim q,z'\sim q}[k(z,z')] - 2\mathbb{E}_{z\sim p, z' \sim q}[k(z,z')],
 $$

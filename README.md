@@ -17,7 +17,9 @@ Low-variance Monte Carlo gradients can be computed via the reparameterization tr
 
 We implement the InfoVAE [2], built on a modified ELBO,
 <p align="center"><img alt="$$&#10;\mathcal{L}(\theta,\phi) = \mathbb{E}_{z\sim q_\phi(z|x)}[p_\theta(x|z)] - (1-\alpha) D_{KL}(q_\phi(z|x) || p_\theta(z)) -(\alpha+\lambda-1)D(q_\phi(z) || p_\theta(z)),&#10;$$" src="svgs/f6e512403521ae8d4de674afefb6099d.svg" align="middle" width="635.32079985pt" height="18.639307499999997pt"/></p>
-where the last term is any choice of divergence. In our case we implement two choices: maximum mean discrepancy (MMD) and energy distance [3].
+where the last term is any choice of divergence. 
+
+In our case we implement two choices: maximum mean discrepancy (MMD) and energy distance [3].
 <p align="center"><img alt="$$&#10;D_{\mathrm{MMD}} = \mathbb{E}_{z\sim p,z' \sim p}[k(z,z')] + \mathbb{E}_{z\sim q,z'\sim q}[k(z,z')] - 2\mathbb{E}_{z\sim p, z' \sim q}[k(z,z')],&#10;$$" src="svgs/9c79a93fec9654f3a94ab2774b1d1a70.svg" align="middle" width="504.00104534999997pt" height="17.8831554pt"/></p>
 <p align="center"><img alt="$$&#10;D_\mathrm{energy} = 2\mathbb{E}_{z\sim p,z' \sim q}[||z-z'||_2]-\mathbb{E}_{z\sim p,z' \sim p}[||z-z'||_2]-\mathbb{E}_{z\sim q,z' \sim q}[||z-z'||_2].&#10;$$" src="svgs/2cffb33741083f4e2d7daa9253ca38b6.svg" align="middle" width="557.86499505pt" height="17.8831554pt"/></p>
 
